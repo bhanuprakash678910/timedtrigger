@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any 
     stages {
         stage('Example Build') {
             steps {
@@ -7,9 +7,11 @@ pipeline {
             }
         }
         stage('Example Deploy') {
-            when {
-                triggeredBy "TimerTrigger"
+           
+             when { 
+               triggeredBy 'SCMTrigger' 
             }
+
             steps {
                 echo 'Deploying'
             }
